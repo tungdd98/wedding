@@ -15,17 +15,28 @@ const Home: FC = () => {
 	const [hour, setHour] = useState('10')
 	const [minute, setMinute] = useState('30')
 
-	const { positionHour, positionMinute } = useMemo(() => {
+	const {
+		positionHourRight,
+		positionMinuteRight,
+		positionHourLeft,
+		positionMinuteLeft,
+	} = useMemo(() => {
 		if (src === IMAGES.BOY) {
 			return {
-				positionHour: 'top-[363px] right-[350px] w-full text-right',
-				positionMinute: 'top-[363px] right-[265px] w-full text-right',
+				positionHourRight:
+					'top-[363px] right-[350px] w-full text-right',
+				positionMinuteRight:
+					'top-[363px] right-[265px] w-full text-right',
+				positionHourLeft: 'top-[525px] left-[185px] w-1/2',
+				positionMinuteLeft: 'top-[525px] left-[250px] w-1/2',
 			}
 		}
 
 		return {
-			positionHour: 'top-[525px] left-[185px] w-1/2',
-			positionMinute: 'top-[525px] left-[250px] w-1/2',
+			positionHourRight: 'top-[525px] left-[185px] w-1/2',
+			positionMinuteRight: 'top-[525px] left-[250px] w-1/2',
+			positionHourLeft: 'top-[363px] right-[340px] w-full text-right',
+			positionMinuteLeft: 'top-[363px] right-[255px] w-full text-right',
 		}
 	}, [src])
 
@@ -44,20 +55,34 @@ const Home: FC = () => {
 						alt=''
 						className='max-w-full'
 					/>
-					<div className='absolute z-10 top-[175px] left-0 w-1/2 text-lg text-center font-medium'>
+					<div className='absolute z-10 top-[173px] left-0 w-1/2 text-lg text-center font-medium'>
 						{name}
 					</div>
 					<div
 						className={cn(
 							'absolute z-10 text-lg font-medium',
-							positionHour
+							positionHourRight
 						)}>
 						{hour}
 					</div>
 					<div
 						className={cn(
 							'absolute z-10 text-lg font-medium',
-							positionMinute
+							positionMinuteRight
+						)}>
+						{minute}
+					</div>
+					<div
+						className={cn(
+							'absolute z-10 text-lg font-medium',
+							positionHourLeft
+						)}>
+						{hour}
+					</div>
+					<div
+						className={cn(
+							'absolute z-10 text-lg font-medium',
+							positionMinuteLeft
 						)}>
 						{minute}
 					</div>
