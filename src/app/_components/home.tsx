@@ -13,7 +13,7 @@ const Home: FC = () => {
 	const [src, setSrc] = useState<string>(IMAGES.BOY)
 	const [name, setName] = useState('Chang e dun')
 	const [hour, setHour] = useState('10')
-	const [minute, setMinute] = useState('30')
+	const [minute, setMinute] = useState('00')
 
 	const {
 		positionHourRight,
